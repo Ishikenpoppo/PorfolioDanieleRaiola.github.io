@@ -134,7 +134,7 @@ a.nav-link:hover {
    ============================================================================ */
 
 .container {
-    max-width: 800px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
 }
@@ -697,6 +697,36 @@ main {
     .external-links {
         flex-direction: column;
         gap: var(--spacing-sm);
+    }
+}
+
+/* ============================================================================
+   EXTRA LARGE SCREENS (1920px+)
+   ============================================================================ */
+
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    .section-intro {
+        font-size: 1.2rem;
     }
 }
 
