@@ -19,7 +19,7 @@
                     <a href="#about" class="nav-link">About</a>
                     <a href="#education" class="nav-link">Education</a>
                     <a href="#experience" class="nav-link">Experience</a>
-                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#certificates" class="nav-link">Certificates</a>
                     <a href="#teaching" class="nav-link">Speaking</a>
                     <a href="#publications" class="nav-link">Publications</a>
                     <a href="#contact" class="nav-link">Contact</a>
@@ -132,23 +132,6 @@
                         Since 2016, I have spent most of my weekends volunteering at the G.V. Schiaparelli Astronomical Observatory in Varese. There, I became part of a passionate community of amateur astronomers committed to carrying forward Salvatore Furia's long-term vision of building a "bridge of understanding between science and people." Our activities range from science outreach for the general public—through cultural events and guided visits—to caring for the flora of the mountain garden at the peak of Campo dei Fiori. I am also involved in promoting the observatory's initiatives on social media, a project I currently manage by coordinating a small team of volunteers, and in astrophotography, cultivating both technical skills and a deep appreciation for the beauty of the night sky.
                     </ul>
                 </article>
-            </div>
-        </section>
-
-        <section id="skills" class="section">
-            <div class="container">
-                <h2>Skills</h2>
-                
-                <div class="skills-grid">
-                    <article class="skill-category">
-                        <h3 class="skill-category-title">Research and Analysis</h3>
-                        <ul class="skill-list">
-                            <li>Historical/Social Epistemology</li>
-                            <li>Philosophy of Science</li>
-                            <li>Models of Scientific Collaboration</li>
-                        </ul>
-                    </article>
-                </div>
             </div>
         </section>
 
@@ -373,12 +356,21 @@
 
             function updateActive() {
                 const scrollPos = window.scrollY + 100;
+                const windowHeight = window.innerHeight;
+                const docHeight = document.documentElement.scrollHeight;
 
                 let current = '';
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.offsetHeight;
-                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    const sectionBottom = sectionTop + sectionHeight;
+                    const isLastSection = section === sections[sections.length - 1];
+                    
+                    if (isLastSection) {
+                        if (scrollPos >= sectionTop || scrollPos + windowHeight >= docHeight) {
+                            current = section.getAttribute('id');
+                        }
+                    } else if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
                         current = section.getAttribute('id');
                     }
                 });
